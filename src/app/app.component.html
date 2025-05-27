@@ -2,8 +2,8 @@
      [class.dark-theme]="theme() === 'DARK'"
      [class.light-theme]="theme() === 'LIGHT'">
     <app-toolbar></app-toolbar>
-    <div class="grow">
-        <router-outlet></router-outlet>
-    </div>
+    <main class="grow">
+        <app-router-with-fade-animation></app-router-with-fade-animation>
+    </main>
     <app-footer></app-footer>
 </div>

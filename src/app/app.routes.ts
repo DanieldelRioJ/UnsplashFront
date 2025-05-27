@@ -5,10 +5,8 @@ export const IMAGES_ROUTE = 'images';
 export const routes: Routes = [
     {
         path: IMAGES_ROUTE,
-        loadComponent: () =>
-            import(
-                './features/images/list-view/image-page-view/image-page-view.component'
-            ).then(x => x.ImagePageViewComponent),
+        loadChildren: () =>
+            import('./features/images/images.route').then(x => x.IMAGES_ROUTES),
     },
     {
         path: '',

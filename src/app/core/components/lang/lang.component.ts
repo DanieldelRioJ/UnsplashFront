@@ -9,7 +9,6 @@ import { NgTemplateOutlet } from '@angular/common';
     selector: 'app-lang',
     imports: [MatSelect, MatSelectTrigger, MatOption, NgTemplateOutlet],
     templateUrl: './lang.component.html',
-    styleUrl: './lang.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LangComponent {
