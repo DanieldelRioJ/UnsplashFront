@@ -1,0 +1,54 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.dev/guide/theming
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// Define primary and secondary colors
+$primary-dark: mat.m2-define-palette(mat.$m2-indigo-palette);
+$accent-dark: mat.m2-define-palette(mat.$m2-gray-palette);
+
+$primary-light: mat.m2-define-palette(mat.$m2-light-green-palette);
+$accent-light: mat.m2-define-palette(mat.$m2-gray-palette);
+
+// Light theme
+$light-theme: mat.m2-define-light-theme((
+    color: (
+        primary: $primary-dark,
+        accent: $accent-dark,
+    )
+));
+
+// Dark theme
+$dark-theme: mat.m2-define-dark-theme((
+    color: (
+        primary: $primary-dark,
+        accent: $accent-dark,
+    )
+));
+
+// Define clases CSS para ambos temas
+:root {
+    color-scheme: light;
+    @include mat.all-component-themes($light-theme);
+}
+
+.dark-theme {
+    color-scheme: dark;
+    @include mat.all-component-themes($dark-theme);
+}
+
+/* You can add global styles to this file, and also import other style files */
+* {
+    transition: background-color 0.5s, color 0.5s;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

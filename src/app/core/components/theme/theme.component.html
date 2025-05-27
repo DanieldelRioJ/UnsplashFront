@@ -1,0 +1,11 @@
+<button mat-icon-button (click)="toggleTheme()" style="position: relative; width: 40px; height: 40px;">
+    @if (theme() === 'DARK') {
+        <div @slideIcon class="icon-wrapper">
+            <mat-icon>nightlight</mat-icon>
+        </div>
+    } @else {
+        <div @slideIcon class="icon-wrapper">
+            <mat-icon>sunny</mat-icon>
+        </div>
+    }
+</button>
