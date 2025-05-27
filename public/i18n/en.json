@@ -1,3 +1,5 @@
 {
-    "TEST": "Teste EN"
+    "NOT_FOUND": {
+        "BACK_BUTTON": "Go back"
+    }
 }
