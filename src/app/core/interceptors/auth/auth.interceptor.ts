@@ -4,9 +4,10 @@ import { AuthService } from '../../services/auth/auth.service';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
     const authService = inject(AuthService);
-    req.headers.append(
-        'Authorization',
-        `Client-ID ${authService.getAccessKey()}`
-    );
-    return next(req);
+    const modifiedReq = req.clone({
+        setHeaders: {
+            Authorization: `Client-ID ${authService.getAccessKey()}`,
+        },
+    });
+    return next(modifiedReq);
 };

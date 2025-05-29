@@ -7,10 +7,7 @@
 
 // Define primary and secondary colors
 $primary-dark: mat.m2-define-palette(mat.$m2-indigo-palette);
-$accent-dark: mat.m2-define-palette(mat.$m2-gray-palette);
-
-$primary-light: mat.m2-define-palette(mat.$m2-light-green-palette);
-$accent-light: mat.m2-define-palette(mat.$m2-gray-palette);
+$accent-dark: mat.m2-define-palette(mat.$m2-blue-palette);
 
 // Light theme
 $light-theme: mat.m2-define-light-theme((

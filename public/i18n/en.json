@@ -4,5 +4,14 @@
     },
     "NOT_FOUND": {
         "BACK_BUTTON": "Go back"
+    },
+    "ERROR_HANDLER": {
+        "IMAGES": {
+            "TITLE": "An error happened loading images",
+            "MESSAGE": {
+                "404": "404 - Endpoint/image not found",
+                "500": "500 - Server error"
+            }
+        }
     }
 }

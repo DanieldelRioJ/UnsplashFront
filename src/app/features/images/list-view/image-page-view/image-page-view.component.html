@@ -1,1 +1,29 @@
-<p>image-page-view works!</p>
+@let data = data$ | async;
+@let loading = datasource.loading$ | async;
+<div class="flex flex-col gap-4">
+    <app-image-search></app-image-search>
+    @if (form.valid) {
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            @for (image of data?.results ?? []; track image.id) {
+                @defer (on viewport) {
+                    <app-image-item [image]="image" [routerLink]="['/', 'images', image.id]"></app-image-item>
+                } @placeholder {
+                    <app-skeleton-image-loading></app-skeleton-image-loading>
+                }
+            } @empty {
+                @if (!loading) {
+                    <p>No images</p>
+                }
+            }
+            @if (loading) {
+                @for (index of emptyArray; track index) {
+                    <app-skeleton-image-loading class="fade-in"></app-skeleton-image-loading>
+                }
+            }
+        </div>
+    } @else {
+        <p>Introduce datos válidos para buscar</p>
+    }
+
+</div>
+

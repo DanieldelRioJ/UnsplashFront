@@ -27,7 +27,7 @@ export const fadeAnimation = trigger('fadeAnimation', [
             [
                 style({ opacity: 1 }),
                 animate(
-                    '0.3s',
+                    '0.1s',
                     style({
                         opacity: 0,
                         position: 'absolute',
@@ -43,7 +43,7 @@ export const fadeAnimation = trigger('fadeAnimation', [
             [
                 style({ opacity: 0 }),
                 animate(
-                    '0.3s',
+                    '0.1s',
                     style({
                         opacity: 1,
                         position: 'relative',

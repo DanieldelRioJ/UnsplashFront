@@ -1,0 +1,22 @@
+<section class="image-thumb w-full h-full relative cursor-pointer rounded-lg overflow-hidden">
+    <img [src]="image().urls.small" [class.hidden]="loading()" (load)="loading.set(false)"
+         class="w-full h-full object-cover" alt="Unsplash image">
+    @if (loading()) {
+        <app-skeleton-image-loading></app-skeleton-image-loading>
+    }
+    <div class="image-footer absolute w-full bottom-0 p-2 text-gray-300 max-h-full">
+        <p class="show-on-hover text-xs text-gray-300">{{ image().description }}</p>
+        <div class="flex justify-between">
+            <div class="flex gap-2 box-s">
+                <div class="flex gap-2">
+                    <mat-icon svgIcon="heroicons_solid:heart"></mat-icon>
+                    <span>{{ image().likes }}</span>
+                </div>
+                <mat-icon class="show-on-hover" svgIcon="heroicons_solid:document-download"
+                          [appUnsplashImageDownload]="image()" (click)="$event.stopImmediatePropagation()"></mat-icon>
+            </div>
+            <p class="show-on-hover">{{ image().created_at | date: 'shortDate' }}</p>
+        </div>
+    </div>
+</section>
+

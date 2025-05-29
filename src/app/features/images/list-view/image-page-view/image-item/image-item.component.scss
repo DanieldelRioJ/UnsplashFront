@@ -1,0 +1,29 @@
+.image-thumb {
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+        z-index: 100;
+        position: relative;
+        transform: scale(120%);
+
+        .show-on-hover {
+            height: fit-content;
+            overflow: auto;
+        }
+
+        .image-footer {
+            background-color: rgba(112, 128, 144, 0.8);
+        }
+    }
+
+    .show-on-hover {
+        height: 0;
+        overflow: hidden;
+        transition: height 0.2s ease-in-out;
+    }
+
+    .image-footer {
+        background-color: rgba(112, 128, 144, 0.3);
+    }
+
+}

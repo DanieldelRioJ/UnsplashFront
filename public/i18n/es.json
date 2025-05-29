@@ -4,5 +4,14 @@
     },
     "NOT_FOUND": {
         "BACK_BUTTON": "Volver"
+    },
+    "ERROR_HANDLER": {
+        "IMAGES": {
+            "TITLE": "Ha ocurrido un error cargando las imágenes",
+            "MESSAGE": {
+                "404": "404 - Servidor/Imagen no encontrado",
+                "500": "500 - Error del servidor"
+            }
+        }
     }
 }
