@@ -11,6 +11,7 @@ export abstract class HttpErrorHandlerService {
         this.toastService.error(errorObject.message, errorObject.title, {
             positionClass: 'toast-top-center',
             timeOut: 3000,
+            closeButton: true,
         });
     }
 

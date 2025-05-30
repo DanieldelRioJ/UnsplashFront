@@ -4,7 +4,12 @@ import {
     NonNullableFormBuilder,
     Validators,
 } from '@angular/forms';
-import { UnsplashImageSearchOrderBy } from '../../../services/http/unsplash-image.types';
+import {
+    UnsplashImageSearchColor,
+    UnsplashImageSearchContentFilter,
+    UnsplashImageSearchOrderBy,
+    UnsplashImageSearchOrientation,
+} from '../../../services/http/unsplash-image.types';
 
 @Injectable()
 export class ImageSearchFormService {
@@ -19,6 +24,12 @@ export class ImageSearchFormService {
             query: ['', Validators.required],
             order_by: new FormControl<UnsplashImageSearchOrderBy | null>(
                 'relevant'
+            ),
+            color: new FormControl<UnsplashImageSearchColor | null>(null),
+            content_filter:
+                new FormControl<UnsplashImageSearchContentFilter | null>(null),
+            orientation: new FormControl<UnsplashImageSearchOrientation | null>(
+                null
             ),
         });
     }

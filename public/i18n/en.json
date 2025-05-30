@@ -13,5 +13,44 @@
                 "500": "500 - Server error"
             }
         }
+    },
+    "IMAGES": {
+        "LIST_VIEW": {
+            "SEARCH": {
+                "TEXT": "Text",
+                "ORDER_BY": "Order by",
+                "ORDER_BY_OPTIONS": {
+                    "latest": "Latest",
+                    "relevant": "Relevant"
+                },
+                "ADVANCED_FILTERS": "Advanced filters",
+                "COLORS": {
+                    "black_and_white": "Black and White",
+                    "black": "Black",
+                    "white": "White",
+                    "yellow": "Yellow",
+                    "orange": "Orange",
+                    "red": "Red",
+                    "purple": "Purple",
+                    "magenta": "Magenta",
+                    "green": "Green",
+                    "teal": "Teal",
+                    "blue": "Blue"
+                },
+                "ORIENTATIONS": {
+                    "landscape": "Landscape",
+                    "portrait": "Portrait",
+                    "squarish": "Squarish"
+                },
+                "CONTENT_FILTERS": {
+                    "high": "High",
+                    "low": "Low"
+                }
+            },
+            "NO_VALID_DATA_PLACEHOLDER": "Introduce valid filters to retrieve images",
+            "NO_IMAGES": "No images found with the provided filters"
+        },
+        "DETAIL_VIEW": {
+        }
     }
 }

@@ -1,0 +1,10 @@
+<section class="image-thumb w-full h-full relative cursor-pointer rounded-lg overflow-hidden">
+    @if (image()) {
+        <img [src]="image()!.urls.full" [class.hidden]="loading()" (loadstart)="loading.set(true)"
+             (load)="loading.set(false)"
+             class="w-full h-full" alt="Unsplash image">
+    }
+    @if (loading() || !image()) {
+        <app-skeleton-image-loading class="w-full min-h-30"></app-skeleton-image-loading>
+    }
+</section>

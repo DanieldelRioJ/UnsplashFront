@@ -12,7 +12,9 @@
                 <mat-label>Orden</mat-label>
                 <mat-select formControlName="order_by">
                     @for (order of order_by_options; track order) {
-                        <mat-option [value]="order">{{ order }}</mat-option>
+                        <mat-option
+                            [value]="order">{{ ('IMAGES.LIST_VIEW.SEARCH.ORDER_BY_OPTIONS.' + order) | translate }}
+                        </mat-option>
                     }
                 </mat-select>
             </mat-form-field>

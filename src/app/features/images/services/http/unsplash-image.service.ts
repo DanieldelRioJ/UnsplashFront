@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {
+    UnsplashImage,
     UnsplashImageSearchFilter,
     UnsplashImageSearchResult,
 } from './unsplash-image.types';
@@ -29,6 +30,12 @@ export class UnsplashImageService {
             {
                 params: params,
             }
+        );
+    }
+
+    getImage(id: string): Observable<UnsplashImage> {
+        return this._httpClient.get<UnsplashImage>(
+            `${environment.api_url}photos/${id}`
         );
     }
 }

@@ -5,73 +5,50 @@ import {
     inject,
     OnDestroy,
     OnInit,
+    signal,
 } from '@angular/core';
 import { InfiniteDatasource } from '@shared/datasources/infinite-datasource';
 import {
+    UnsplashImage,
     UnsplashImageSearchFilter,
-    UnsplashImageSearchResult,
 } from '../../services/http/unsplash-image.types';
 import { UnsplashImageService } from '../../services/http/unsplash-image.service';
-import {
-    catchError,
-    debounceTime,
-    filter,
-    Observable,
-    of,
-    startWith,
-} from 'rxjs';
+import { catchError, filter, map, Observable, of, startWith, tap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
-import { ImageItemComponent } from './image-item/image-item.component';
-import { RouterLink } from '@angular/router';
-import { SkeletonImageLoadingComponent } from '@shared/components/skeleton-image-loading/skeleton-image-loading.component';
 import { ImageSearchFormService } from './image-search/image-search-form.service';
 import { ImageSearchComponent } from './image-search/image-search.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { HttpErrorResponse } from '@angular/common/http';
 import { HttpErrorHandlerService } from '@core/services/error/http-error-handler.service';
-import { ImageHttpErrorHandlerService } from '../../services/http/image-http-error-handler.service';
 import { fadeAnimation } from '@shared/animations/router-fade.animation';
+import { ImageGridComponent } from './image-grid/image-grid.component';
+import { NoValidFilterPlaceholderComponent } from '@shared/components/no-valid-filter-placeholder/no-valid-filter-placeholder.component';
+import { TranslatePipe } from '@ngx-translate/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DataSource } from '@shared/datasources/datasource';
+import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 
 @Component({
     selector: 'app-image-page-view',
     imports: [
         AsyncPipe,
-        ImageItemComponent,
-        RouterLink,
-        SkeletonImageLoadingComponent,
         ImageSearchComponent,
+        ImageGridComponent,
+        NoValidFilterPlaceholderComponent,
+        TranslatePipe,
+        InfiniteScrollDirective,
     ],
-    providers: [
-        ImageSearchFormService,
-        {
-            provide: HttpErrorHandlerService,
-            useClass: ImageHttpErrorHandlerService,
-        },
-    ],
+    providers: [ImageSearchFormService],
     animations: [fadeAnimation],
     templateUrl: './image-page-view.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImagePageViewComponent implements OnInit, OnDestroy {
-    readonly datasource = new InfiniteDatasource<
+    datasource = signal<DataSource<
         UnsplashImageSearchFilter,
-        UnsplashImageSearchResult | null
-    >(
-        (filter, pageRequest) =>
-            this._unsquashImageService
-                .searchImages(filter, pageRequest.page, pageRequest.size)
-                .pipe(
-                    catchError((err: HttpErrorResponse) => {
-                        this._httpErrorHandlerService.handleError(err);
-                        return of(null);
-                    })
-                ),
-        {},
-        { page: 0, size: 30 },
-        false
-    );
-    data$?: Observable<UnsplashImageSearchResult | null>;
-    readonly emptyArray = Array.from({ length: 30 }, (_, i) => i);
+        UnsplashImage
+    > | null>(null);
+    data$?: Observable<UnsplashImage[] | null>;
 
     readonly form: typeof this._imageSearchFormService.searchForm;
     private readonly _destroyRef = inject(DestroyRef);
@@ -79,30 +56,78 @@ export class ImagePageViewComponent implements OnInit, OnDestroy {
     constructor(
         private readonly _unsquashImageService: UnsplashImageService,
         private readonly _imageSearchFormService: ImageSearchFormService,
-        private readonly _httpErrorHandlerService: HttpErrorHandlerService
+        private readonly _httpErrorHandlerService: HttpErrorHandlerService,
+        private readonly _router: Router,
+        private readonly _activatedRoute: ActivatedRoute
     ) {
         this.form = this._imageSearchFormService.searchForm;
     }
 
     ngOnInit(): void {
+        this._loadPreviousFilters();
+        this._createDataSource();
         this._listenToFilterChange();
-        this.data$ = this.datasource.connect();
+        this._connectDataSource();
+    }
+
+    private _connectDataSource() {
+        this.data$ = this.datasource()?.connect();
+    }
+
+    private _loadPreviousFilters() {
+        this.form.patchValue(this._activatedRoute.snapshot.queryParams);
+    }
+
+    private _createDataSource() {
+        this.datasource.set(
+            new InfiniteDatasource<UnsplashImageSearchFilter, UnsplashImage>(
+                (filter, pageRequest) =>
+                    this._unsquashImageService
+                        .searchImages(
+                            filter,
+                            pageRequest.page,
+                            pageRequest.size
+                        )
+                        .pipe(
+                            map(result => result.results),
+                            catchError((err: HttpErrorResponse) => {
+                                this._httpErrorHandlerService.handleError(err);
+                                return of([]);
+                            })
+                        ),
+                {},
+                { page: 0, size: 15 },
+                this.form.valid
+            )
+        );
     }
 
     private _listenToFilterChange() {
         this.form.valueChanges
             .pipe(
                 startWith(this.form.value),
-                debounceTime(500), //Wait until no more changes
+                tap(filter => this._updateUrl(filter)),
                 filter(() => this.form.valid),
                 takeUntilDestroyed(this._destroyRef)
             )
             .subscribe(filter => {
-                this.datasource.setFilter(filter);
+                this.datasource()?.setFilter(filter);
             });
     }
 
+    private _updateUrl(filter: UnsplashImageSearchFilter) {
+        this._router.navigate([], {
+            relativeTo: this._activatedRoute,
+            queryParams: filter,
+            replaceUrl: true,
+        });
+    }
+
     ngOnDestroy(): void {
-        this.datasource.disconnect();
+        this.datasource()?.disconnect();
+    }
+
+    scrollEnd() {
+        this.datasource()?.nextPage();
     }
 }

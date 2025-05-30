@@ -13,5 +13,44 @@
                 "500": "500 - Error del servidor"
             }
         }
+    },
+    "IMAGES": {
+        "LIST_VIEW": {
+            "SEARCH": {
+                "TEXT": "Texto",
+                "ORDER_BY": "Ordenar por",
+                "ORDER_BY_OPTIONS": {
+                    "latest": "Último",
+                    "relevant": "Relevancia"
+                },
+                "ADVANCED_FILTERS": "Filtros avanzados",
+                "COLORS": {
+                    "black_and_white": "Blanco y negro",
+                    "black": "Negro",
+                    "white": "Blanco",
+                    "yellow": "Amarillo",
+                    "orange": "Naranja",
+                    "red": "Rojo",
+                    "purple": "Púrpura",
+                    "magenta": "Magenta",
+                    "green": "Verde",
+                    "teal": "Verde azulado",
+                    "blue": "Azul"
+                },
+                "ORIENTATIONS": {
+                    "landscape": "Horizontal",
+                    "portrait": "Vertical",
+                    "squarish": "Cuadrado"
+                },
+                "CONTENT_FILTERS": {
+                    "high": "Alto",
+                    "low": "Bajo"
+                }
+            },
+            "NO_VALID_DATA_PLACEHOLDER": "Introduce filtros válidos para obtener las imágenes",
+            "NO_IMAGES": "No se han encontrado imágenes para los filtros proporcionados"
+        },
+        "DETAIL_VIEW": {
+        }
     }
 }

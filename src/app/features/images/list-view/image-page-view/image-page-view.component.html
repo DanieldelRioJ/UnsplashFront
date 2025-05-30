@@ -1,29 +1,13 @@
-@let data = data$ | async;
-@let loading = datasource.loading$ | async;
+@let images = (data$ | async) ?? [];
+@let loading = (datasource()?.loading$ | async) ?? true;
+
 <div class="flex flex-col gap-4">
     <app-image-search></app-image-search>
     @if (form.valid) {
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            @for (image of data?.results ?? []; track image.id) {
-                @defer (on viewport) {
-                    <app-image-item [image]="image" [routerLink]="['/', 'images', image.id]"></app-image-item>
-                } @placeholder {
-                    <app-skeleton-image-loading></app-skeleton-image-loading>
-                }
-            } @empty {
-                @if (!loading) {
-                    <p>No images</p>
-                }
-            }
-            @if (loading) {
-                @for (index of emptyArray; track index) {
-                    <app-skeleton-image-loading class="fade-in"></app-skeleton-image-loading>
-                }
-            }
-        </div>
+        <app-image-grid [images]="images" [loading]="loading" infiniteScroll (scrolled)="scrollEnd()"></app-image-grid>
     } @else {
-        <p>Introduce datos válidos para buscar</p>
+        <app-no-valid-filter-placeholder [text]="'IMAGES.LIST_VIEW.NO_VALID_DATA_PLACEHOLDER' | translate"
+                                         class="pt-4"></app-no-valid-filter-placeholder>
     }
-
 </div>
 

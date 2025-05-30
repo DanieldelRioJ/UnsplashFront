@@ -15,19 +15,27 @@ export class ImageHttpErrorHandlerService extends HttpErrorHandlerService {
             title: 'ERROR_HANDLER.IMAGES.TITLE',
             message: '',
         };
-        switch (error.status) {
-            case 404:
-                errorMessage.message = 'ERROR_HANDLER.IMAGES.MESSAGE.404';
-                break;
-            case 500:
-                errorMessage.message = 'ERROR_HANDLER.IMAGES.MESSAGE.404';
-                break;
+        if (error.error) {
+            errorMessage.message =
+                error.error?.errors?.join(', ') ?? error.error;
+        } else {
+            switch (error.status) {
+                case 404:
+                    errorMessage.message = 'ERROR_HANDLER.IMAGES.MESSAGE.404';
+                    break;
+                case 500:
+                    errorMessage.message = 'ERROR_HANDLER.IMAGES.MESSAGE.500';
+                    break;
+            }
         }
+
         return Object.fromEntries(
-            Object.entries(errorMessage).map(([key, value]) => [
-                key,
-                this._translateService.instant(value),
-            ])
+            Object.entries(errorMessage)
+                .filter(([_, value]) => !!value)
+                .map(([key, value]) => [
+                    key,
+                    this._translateService.instant(value),
+                ])
         ) as ErrorMessage;
     }
 }

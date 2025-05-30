@@ -5,6 +5,7 @@ import { MatOption, MatSelect } from '@angular/material/select';
 import { ImageSearchFormService } from './image-search-form.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UnsplashImageSearchOrderBy } from '../../../services/http/unsplash-image.types';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-image-search',
@@ -16,6 +17,7 @@ import { UnsplashImageSearchOrderBy } from '../../../services/http/unsplash-imag
         MatSelect,
         MatOption,
         ReactiveFormsModule,
+        TranslatePipe,
     ],
     templateUrl: './image-search.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

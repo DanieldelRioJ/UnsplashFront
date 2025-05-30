@@ -43,6 +43,7 @@ export interface UnsplashImage {
     likes: number;
     liked_by_user: boolean;
     description: string | null;
+    slug: string;
     user: UnsplashUser;
     current_user_collections: unknown[];
     urls: UnsplashImageUrls;

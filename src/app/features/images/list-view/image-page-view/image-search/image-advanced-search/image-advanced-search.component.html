@@ -1,7 +1,58 @@
 <mat-accordion>
     <mat-expansion-panel>
         <mat-expansion-panel-header>
-            Advanced filters
+            <div class="flex gap-2">
+                <mat-icon svgIcon="heroicons_outline:search"></mat-icon>
+                <span>{{ 'IMAGES.LIST_VIEW.SEARCH.ADVANCED_FILTERS' | translate }}</span>
+            </div>
         </mat-expansion-panel-header>
+        @defer (on viewport) {
+            <form class="flex flex-col gap-2" [formGroup]="form">
+                <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-2">
+                    <div>
+                        <mat-form-field class="w-full" color="accent">
+                            <mat-label>Color</mat-label>
+                            <mat-select formControlName="color">
+                                <mat-option [value]="null"></mat-option>
+                                @for (color of colors; track color) {
+                                    <mat-option
+                                        [value]="color">{{ ('IMAGES.LIST_VIEW.SEARCH.COLORS.' + color) | translate }}
+                                    </mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="w-full" color="accent">
+                            <mat-label>Orientation</mat-label>
+                            <mat-select formControlName="orientation">
+                                <mat-option [value]="null"></mat-option>
+                                @for (orientation of orientations; track orientation) {
+                                    <mat-option
+                                        [value]="orientation">{{ ('IMAGES.LIST_VIEW.SEARCH.ORIENTATIONS.' + orientation) | translate }}
+                                    </mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field class="w-full" color="accent">
+                            <mat-label>Content filter</mat-label>
+                            <mat-select formControlName="content_filter">
+                                <mat-option [value]="null"></mat-option>
+                                @for (content_filter of content_filters; track content_filter) {
+                                    <mat-option
+                                        [value]="content_filter">{{ ('IMAGES.LIST_VIEW.SEARCH.CONTENT_FILTERS.' + content_filter) | translate }}
+                                    </mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+        } @placeholder {
+            <app-skeleton-image-loading></app-skeleton-image-loading>
+        }
     </mat-expansion-panel>
 </mat-accordion>

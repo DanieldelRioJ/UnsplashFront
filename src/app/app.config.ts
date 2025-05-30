@@ -7,10 +7,10 @@ import { authInterceptor } from '@core/interceptors/auth/auth.interceptor';
 import { provideTranslations } from '@core/services/translate/translate.provider';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideCustomIcons } from '@core/providers/icon.provider';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { loadingBarInterceptor } from '@core/components/loading-bar/loading-bar.interceptor';
 import { provideToastr } from 'ngx-toastr';
 import { provideLocale } from '@core/providers/locale.provider';
+import { matFormFieldProvider } from '@core/providers/mat-form-field.provider';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -24,11 +24,6 @@ export const appConfig: ApplicationConfig = {
         provideAnimations(),
         provideRouter(routes),
         provideToastr(),
-        {
-            provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
-            useValue: {
-                subscriptSizing: 'dynamic', // <- este es el valor que quieres
-            },
-        },
+        matFormFieldProvider(),
     ],
 };

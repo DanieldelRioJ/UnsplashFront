@@ -1,1 +1,7 @@
-<p>detail works!</p>
+<button appGoBack mat-flat-button color="primary">
+    <mat-icon>arrow_back</mat-icon>
+    Go back
+</button>
+<div class="grid grid-cols-2">
+    <app-detail-image [image]="image$ | async"></app-detail-image>
+</div>

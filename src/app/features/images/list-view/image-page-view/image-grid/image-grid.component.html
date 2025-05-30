@@ -1,0 +1,18 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    @for (image of images(); track image.id) {
+        @defer (on viewport) {
+            <app-image-item [image]="image" [routerLink]="['/', 'images', image.id]"></app-image-item>
+        } @placeholder {
+            <app-skeleton-image-loading></app-skeleton-image-loading>
+        }
+    }
+    @if (loading()) {
+        @for (index of emptyArray; track index) {
+            <app-skeleton-image-loading class="fade-in"></app-skeleton-image-loading>
+        }
+    }
+</div>
+@if (!loading() && images().length === 0) {
+    <app-empty-search-placeholder
+        [text]="'IMAGES.LIST_VIEW.NO_IMAGES' | translate"></app-empty-search-placeholder>
+}
