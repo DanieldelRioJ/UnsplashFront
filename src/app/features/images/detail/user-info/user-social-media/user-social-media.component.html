@@ -1,0 +1,17 @@
+<div class="w-full flex gap-2">
+    @if (user().instagram_username) {
+        <a [href]="'https://instagram.com/'+user().instagram_username" target="_blank">
+            <mat-icon svgIcon="enterprise:instagram"></mat-icon>
+        </a>
+    }
+    @if (user().twitter_username) {
+        <a [href]="'https://x.com/'+user().twitter_username" target="_blank">
+            <mat-icon svgIcon="enterprise:instagram"></mat-icon>
+        </a>
+    }
+    @if (user().portfolio_url) {
+        <a [href]="user().portfolio_url" target="_blank">
+            <mat-icon svgIcon="enterprise:instagram"></mat-icon>
+        </a>
+    }
+</div>

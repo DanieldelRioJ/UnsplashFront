@@ -1,0 +1,24 @@
+<mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+        <mat-panel-title class="flex gap-2">
+            @if (user().profile_image.small) {
+                <img [src]="user().profile_image.small" alt="Profile image" class="w-8 h-8 rounded-full">
+            } @else {
+                <mat-icon svgIcon="heroicons_outline:user"></mat-icon>
+            }
+            <span>
+
+                {{ user().name }}
+            </span>
+            <a class="underline hover:text-blue-500" [href]="user().links.html"
+               target="_blank">{{ '@' + user().username }}</a>
+        </mat-panel-title>
+        <ng-template matExpansionPanelContent>
+            <div class="flex flex-col gap-2">
+                <app-user-personal-data [user]="user()"></app-user-personal-data>
+                <app-user-stats [user]="user()"></app-user-stats>
+                <app-user-social-media [user]="user()"></app-user-social-media>
+            </div>
+        </ng-template>
+    </mat-expansion-panel-header>
+</mat-expansion-panel>

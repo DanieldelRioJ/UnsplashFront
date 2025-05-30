@@ -1,0 +1,18 @@
+<p>Resolución: {{ image().width }}x{{ image().height }}</p>
+<div class="flex gap-2 items-center">
+    <p>Color: </p>
+    <div [style.background-color]="image().color" class="w-4 h-4 rounded-full"></div>
+</div>
+<p>Camera: {{ image().exif.make }}</p>
+<p class="flex gap-2 items-center">Location:
+    @if (image().location.name) {
+        {{ image().location.name }}
+    }
+    @if (image().location.position.latitude) {
+        <a [href]="'https://www.google.es/maps/place/'+image().location.position.latitude+','+image().location.position.longitude"
+           target="_blank" class="cursor-pointer">
+            <mat-icon svgIcon="enterprise:google_maps"></mat-icon>
+        </a>
+    }
+</p>
+

@@ -12,7 +12,7 @@
                     <mat-icon svgIcon="heroicons_solid:heart"></mat-icon>
                     <span>{{ image().likes }}</span>
                 </div>
-                <mat-icon class="show-on-hover" svgIcon="heroicons_solid:document-download"
+                <mat-icon class="show-on-hover" svgIcon="heroicons_solid:cloud-arrow-down"
                           [appUnsplashImageDownload]="image()" (click)="$event.stopImmediatePropagation()"></mat-icon>
             </div>
             <p class="show-on-hover">{{ image().created_at | date: 'shortDate' }}</p>

@@ -1,0 +1,7 @@
+<mat-chip-set aria-label="Fish selection">
+    @for (tag of tags(); track tag.title) {
+        <mat-chip class="cursor-pointer" [routerLink]="['/', IMAGES_ROUTE]" [queryParams]="{query: tag.title}"
+                  queryParamsHandling="replace">{{ tag.title }}
+        </mat-chip>
+    }
+</mat-chip-set>

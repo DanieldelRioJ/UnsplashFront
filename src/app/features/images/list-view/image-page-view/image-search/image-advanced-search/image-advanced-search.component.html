@@ -1,14 +1,14 @@
 <mat-accordion>
     <mat-expansion-panel>
         <mat-expansion-panel-header>
-            <div class="flex gap-2">
-                <mat-icon svgIcon="heroicons_outline:search"></mat-icon>
+            <mat-panel-title class="flex gap-2">
+                <mat-icon svgIcon="heroicons_outline:magnifying-glass"></mat-icon>
                 <span>{{ 'IMAGES.LIST_VIEW.SEARCH.ADVANCED_FILTERS' | translate }}</span>
-            </div>
+            </mat-panel-title>
         </mat-expansion-panel-header>
         @defer (on viewport) {
             <form class="flex flex-col gap-2" [formGroup]="form">
-                <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-2">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     <div>
                         <mat-form-field class="w-full" color="accent">
                             <mat-label>Color</mat-label>

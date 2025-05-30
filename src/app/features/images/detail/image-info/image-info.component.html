@@ -1,0 +1,17 @@
+<mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+        <mat-panel-title class="flex gap-2">
+            <mat-icon svgIcon="heroicons_outline:photo"></mat-icon>
+            <span>
+                Image info
+            </span>
+        </mat-panel-title>
+        <ng-template matExpansionPanelContent>
+            <div class="flex flex-col gap-2">
+                <p>{{ image().description }}</p>
+                <app-image-metadata [image]="image()"></app-image-metadata>
+                <app-image-tags [tags]="image().tags"></app-image-tags>
+            </div>
+        </ng-template>
+    </mat-expansion-panel-header>
+</mat-expansion-panel>

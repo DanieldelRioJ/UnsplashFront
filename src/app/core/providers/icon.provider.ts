@@ -22,5 +22,11 @@ export function provideCustomIcons(): EnvironmentProviders {
                 'public/icons/heroicons-solid.svg'
             )
         );
+        iconRegistry.addSvgIconSetInNamespace(
+            'enterprise',
+            sanitizer.bypassSecurityTrustResourceUrl(
+                'public/icons/enterprise.svg'
+            )
+        );
     });
 }

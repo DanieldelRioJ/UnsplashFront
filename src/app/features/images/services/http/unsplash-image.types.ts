@@ -50,6 +50,39 @@ export interface UnsplashImage {
     links: UnsplashImageLinks;
 }
 
+export interface UnsplashImageDetailed extends UnsplashImage {
+    views: number;
+    downloads: number;
+    tags: UnsplashImageTag[];
+    exif: UnsplashImageExif;
+    location: UnsplashImageLocation;
+}
+
+export interface UnsplashImageTag {
+    type: string;
+    title: string;
+}
+
+export interface UnsplashImageExif {
+    make: string;
+    model: string;
+    name: string;
+    exposure_time: string;
+    aperture: string;
+    focal_length: string;
+    iso: string;
+}
+
+export interface UnsplashImageLocation {
+    name: string;
+    city: string;
+    country: string;
+    position: {
+        latitude: number;
+        longitude: number;
+    };
+}
+
 export interface UnsplashUser {
     id: string;
     username: string;
@@ -59,6 +92,10 @@ export interface UnsplashUser {
     instagram_username: string | null;
     twitter_username: string | null;
     portfolio_url: string | null;
+    total_collections: number;
+    total_illustrations: number;
+    total_likes: number;
+    total_photos: number;
     profile_image: UnsplashUserProfileImage;
     links: UnsplashUserLinks;
 }

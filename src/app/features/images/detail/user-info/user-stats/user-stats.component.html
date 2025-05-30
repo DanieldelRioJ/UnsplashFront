@@ -1,0 +1,14 @@
+<div class="flex gap-4"><span>Estadísticas:</span>
+    <div class="flex items-center gap-1">
+        <mat-icon svgIcon="heroicons_outline:circle-stack"></mat-icon>
+        <span>{{ user().total_collections }}</span>
+    </div>
+    <div class="flex items-center gap-1">
+        <mat-icon svgIcon="heroicons_outline:photo"></mat-icon>
+        <span>{{ user().total_photos }}</span>
+    </div>
+    <div class="flex items-center gap-1">
+        <mat-icon svgIcon="heroicons_outline:heart"></mat-icon>
+        <span>{{ user().total_likes }}</span>
+    </div>
+</div>

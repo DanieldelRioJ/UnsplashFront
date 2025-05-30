@@ -1,7 +1,18 @@
-<button appGoBack mat-flat-button color="primary">
-    <mat-icon>arrow_back</mat-icon>
-    Go back
-</button>
-<div class="grid grid-cols-2">
-    <app-detail-image [image]="image$ | async"></app-detail-image>
+@let image = image$ | async;
+<div class="flex flex-col gap-2">
+    <button appGoBack mat-flat-button color="primary" class="w-fit">
+        <mat-icon>arrow_back</mat-icon>
+        Go back
+    </button>
+    @if (image) {
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <app-detail-image [image]="image"></app-detail-image>
+            <mat-accordion [multi]="true">
+                <app-image-info [image]="image"></app-image-info>
+                <app-user-info [user]="image.user"></app-user-info>
+            </mat-accordion>
+        </div>
+    }
 </div>
+
+
