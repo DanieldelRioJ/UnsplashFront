@@ -1,20 +1,28 @@
-<p><span class="font-bold">{{ 'IMAGES.DETAIL_VIEW.IMAGE_INFO.RESOLUTION' | translate }}:</span> {{ image().width }}
-    x{{ image().height }}</p>
-<div class="flex gap-2 items-center">
-    <span class="font-bold">{{ 'IMAGES.DETAIL_VIEW.IMAGE_INFO.COLOR' | translate }}:</span>
-    <div [style.background-color]="image().color" class="w-4 h-4 rounded-full"></div>
-</div>
-<p><span class="font-bold">{{ 'IMAGES.DETAIL_VIEW.IMAGE_INFO.CAMERA' | translate }}:</span> {{ image().exif.make }}</p>
-<p class="flex gap-2 items-center">
-    <span><span class="font-bold">{{ 'IMAGES.DETAIL_VIEW.IMAGE_INFO.LOCATION' | translate }}:</span></span>
-    @if (image().location.name) {
-        {{ image().location.name }}
-    }
-    @if (image().location.position.latitude) {
-        <a [href]="'https://www.google.es/maps/place/'+image().location.position.latitude+','+image().location.position.longitude"
-           target="_blank" class="cursor-pointer">
-            <mat-icon svgIcon="enterprise:google_maps"></mat-icon>
-        </a>
-    }
-</p>
-
+<app-property>
+    <app-property-title>{{ 'IMAGES.DETAIL_VIEW.IMAGE_INFO.RESOLUTION' | translate }}</app-property-title>
+    <app-property-value>{{ image().width }}x{{ image().height }}</app-property-value>
+</app-property>
+<app-property>
+    <app-property-title>{{ 'IMAGES.DETAIL_VIEW.IMAGE_INFO.COLOR' | translate }}</app-property-title>
+    <app-property-value>
+        <div [style.background-color]="image().color" class="w-4 h-4 rounded-full"></div>
+    </app-property-value>
+</app-property>
+<app-property>
+    <app-property-title>{{ 'IMAGES.DETAIL_VIEW.IMAGE_INFO.CAMERA' | translate }}</app-property-title>
+    <app-property-value>{{ image().exif.make }}</app-property-value>
+</app-property>
+<app-property>
+    <app-property-title>{{ 'IMAGES.DETAIL_VIEW.IMAGE_INFO.LOCATION' | translate }}</app-property-title>
+    <app-property-value>
+        @if (image().location.name) {
+            {{ image().location.name }}
+        }
+        @if (image().location.position.latitude) {
+            <a [href]="'https://www.google.es/maps/place/'+image().location.position.latitude+','+image().location.position.longitude"
+               target="_blank" class="cursor-pointer">
+                <mat-icon svgIcon="enterprise:google_maps"></mat-icon>
+            </a>
+        }
+    </app-property-value>
+</app-property>

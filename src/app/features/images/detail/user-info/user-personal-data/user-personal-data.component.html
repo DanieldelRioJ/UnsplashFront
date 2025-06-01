@@ -1,8 +1,11 @@
 <div class="flex flex-col gap-1">
-    <p><span
-        class="font-bold">{{ 'IMAGES.DETAIL_VIEW.USER_INFO.FIRST_NAME' | translate }}</span>: {{ user().first_name }}
-    </p>
-    <p><span
-        class="font-bold">{{ 'IMAGES.DETAIL_VIEW.USER_INFO.LAST_NAME' | translate }}</span>: {{ user().last_name }}</p>
+    <app-property>
+        <app-property-title>{{ 'IMAGES.DETAIL_VIEW.USER_INFO.FIRST_NAME' | translate }}</app-property-title>
+        <app-property-value>{{ user().first_name }}</app-property-value>
+    </app-property>
+    <app-property>
+        <app-property-title>{{ 'IMAGES.DETAIL_VIEW.USER_INFO.LAST_NAME' | translate }}</app-property-title>
+        <app-property-value>{{ user().last_name }}</app-property-value>
+    </app-property>
 </div>
 

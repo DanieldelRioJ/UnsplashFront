@@ -4,7 +4,9 @@
 <div class="flex flex-col gap-4">
     <app-image-search></app-image-search>
     @if (form.valid) {
-        <app-image-grid [images]="images" [loading]="loading" infiniteScroll (scrolled)="scrollEnd()"></app-image-grid>
+        <app-image-grid [images]="images" [loading]="loading"
+                        infiniteScroll
+                        (scrolled)="scrollEnd()"></app-image-grid>
     } @else {
         <app-no-valid-filter-placeholder [text]="'IMAGES.LIST_VIEW.NO_VALID_DATA_PLACEHOLDER' | translate"
                                          class="pt-4"></app-no-valid-filter-placeholder>

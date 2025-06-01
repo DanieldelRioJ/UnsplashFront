@@ -1,14 +1,20 @@
-<div class="flex gap-4"><span class="font-bold">{{ 'IMAGES.DETAIL_VIEW.USER_INFO.PORTFOLIO' | translate }}:</span>
-    <div class="flex items-center gap-1" [matTooltip]="'IMAGES.DETAIL_VIEW.USER_INFO.COLLECTIONS' | translate">
-        <mat-icon svgIcon="heroicons_outline:circle-stack"></mat-icon>
-        <span>{{ user().total_collections }}</span>
-    </div>
-    <div class="flex items-center gap-1" [matTooltip]="'IMAGES.DETAIL_VIEW.USER_INFO.IMAGES' | translate">
-        <mat-icon svgIcon="heroicons_outline:photo"></mat-icon>
-        <span>{{ user().total_photos }}</span>
-    </div>
-    <div class="flex items-center gap-1" [matTooltip]="'IMAGES.DETAIL_VIEW.USER_INFO.LIKES' | translate">
-        <mat-icon svgIcon="heroicons_outline:heart"></mat-icon>
-        <span>{{ user().total_likes }}</span>
-    </div>
+<div class="flex gap-4">
+    <app-property>
+        <app-property-title>{{ 'IMAGES.DETAIL_VIEW.USER_INFO.PORTFOLIO' | translate }}</app-property-title>
+        <app-property-value class="flex gap-2">
+            <div class="flex items-center gap-1" [matTooltip]="'IMAGES.DETAIL_VIEW.USER_INFO.COLLECTIONS' | translate">
+                <mat-icon svgIcon="heroicons_outline:circle-stack"></mat-icon>
+                <span>{{ user().total_collections }}</span>
+            </div>
+            <div class="flex items-center gap-1" [matTooltip]="'IMAGES.DETAIL_VIEW.USER_INFO.IMAGES' | translate">
+                <mat-icon svgIcon="heroicons_outline:photo"></mat-icon>
+                <span>{{ user().total_photos }}</span>
+            </div>
+            <div class="flex items-center gap-1" [matTooltip]="'IMAGES.DETAIL_VIEW.USER_INFO.LIKES' | translate">
+                <mat-icon svgIcon="heroicons_outline:heart"></mat-icon>
+                <span>{{ user().total_likes }}</span>
+            </div>
+        </app-property-value>
+    </app-property>
+
 </div>
