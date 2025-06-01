@@ -1,4 +1,4 @@
-<section class="image-thumb w-full h-full relative cursor-pointer rounded-lg overflow-hidden">
+<section class="image-thumb w-full relative cursor-pointer rounded-lg overflow-hidden">
     @if (image()) {
         <img [src]="image()!.urls.full" [class.hidden]="loading()" (loadstart)="loading.set(true)"
              (load)="loading.set(false)"
