@@ -24,6 +24,7 @@
                     "relevant": "Relevancia"
                 },
                 "ADVANCED_FILTERS": "Filtros avanzados",
+                "COLOR": "Color",
                 "COLORS": {
                     "black_and_white": "Blanco y negro",
                     "black": "Negro",
@@ -37,11 +38,13 @@
                     "teal": "Verde azulado",
                     "blue": "Azul"
                 },
+                "ORIENTATION": "Orientación",
                 "ORIENTATIONS": {
                     "landscape": "Horizontal",
                     "portrait": "Vertical",
                     "squarish": "Cuadrado"
                 },
+                "CONTENT_FILTER": "Filtro de contenido",
                 "CONTENT_FILTERS": {
                     "high": "Alto",
                     "low": "Bajo"
@@ -51,6 +54,39 @@
             "NO_IMAGES": "No se han encontrado imágenes para los filtros proporcionados"
         },
         "DETAIL_VIEW": {
+            "IMAGE_INFO": {
+                "TITLE": "Información de la imagen",
+                "RESOLUTION": "Resolución",
+                "COLOR": "Color",
+                "CAMERA": "Cámara",
+                "LOCATION": "Ubicación"
+            },
+            "USER_INFO": {
+                "FIRST_NAME": "Nombre",
+                "LAST_NAME": "Apellidos",
+                "STATS": "Estadísticas",
+                "COLLECTIONS": "Colecciones",
+                "IMAGES": "Imágenes",
+                "LIKES": "Me gusta",
+                "PORTFOLIO": "Portafolio"
+            }
         }
+    },
+    "FOOTER": {
+        "CONTACT": "Contacto",
+        "DATA": "Datos de:"
+    },
+    "FORM_ERROR": {
+        "PATTERN": "El campo \"{{fieldName}}\" no cumple el patrón",
+        "REQUIRED": "El campo \"{{fieldName}}\" es obligatorio",
+        "MIN_LENGTH": "El campo \"{{fieldName}}\" tiene longitud mínima {{requiredLength}}",
+        "MAX_LENGTH": "El campo \"{{fieldName}}\" tiene longitud máxima {{requiredLength}}",
+        "MAX": "El campo \"{{fieldName}}\" tiene valor maximo {{max}}",
+        "MIN": "El campo \"{{fieldName}}\" tiene valor mínimo {{min}}",
+        "EMAIL": "El campo \"{{fieldName}}\" no cumple el formato email",
+        "JSON": "El campo \"{{fieldName}}\" no cumple el formato json"
+    },
+    "GENERAL": {
+        "GO_BACK": "Volver"
     }
 }

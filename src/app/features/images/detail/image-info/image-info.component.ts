@@ -4,6 +4,7 @@ import { UnsplashImageDetailed } from '../../services/http/unsplash-image.types'
 import { MatIcon } from '@angular/material/icon';
 import { ImageTagsComponent } from './image-tags/image-tags.component';
 import { ImageMetadataComponent } from './image-metadata/image-metadata.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-image-info',
@@ -12,6 +13,7 @@ import { ImageMetadataComponent } from './image-metadata/image-metadata.componen
         MatIcon,
         ImageTagsComponent,
         ImageMetadataComponent,
+        TranslatePipe,
     ],
     templateUrl: './image-info.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

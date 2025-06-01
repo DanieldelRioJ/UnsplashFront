@@ -1,10 +1,15 @@
 @let image = image$ | async;
 <div class="flex flex-col gap-2">
-    <button appGoBack mat-flat-button color="primary" class="w-fit">
-        <mat-icon>arrow_back</mat-icon>
-        Go back
-    </button>
     @if (image) {
+        <div class="w-full flex justify-between">
+            <button appGoBack mat-flat-button color="primary" class="w-fit">
+                <mat-icon>arrow_back</mat-icon>
+                {{ 'GENERAL.GO_BACK' | translate }}
+            </button>
+            <button mat-icon-button [appUnsplashImageDownload]="image" color="primary">
+                <mat-icon svgIcon="heroicons_outline:cloud-arrow-down"></mat-icon>
+            </button>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
             <app-detail-image [image]="image"></app-detail-image>
             <mat-accordion [multi]="true">

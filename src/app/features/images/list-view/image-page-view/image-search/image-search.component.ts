@@ -6,6 +6,9 @@ import { ImageSearchFormService } from './image-search-form.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UnsplashImageSearchOrderBy } from '../../../services/http/unsplash-image.types';
 import { TranslatePipe } from '@ngx-translate/core';
+import { FormErrorDirective } from '@shared/directive/form-error/form-error.directive';
+import { AsyncPipe } from '@angular/common';
+import { MatError } from '@angular/material/form-field';
 
 @Component({
     selector: 'app-image-search',
@@ -18,6 +21,9 @@ import { TranslatePipe } from '@ngx-translate/core';
         MatOption,
         ReactiveFormsModule,
         TranslatePipe,
+        FormErrorDirective,
+        AsyncPipe,
+        MatError,
     ],
     templateUrl: './image-search.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

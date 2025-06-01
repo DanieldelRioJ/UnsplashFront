@@ -5,11 +5,13 @@ import { ActivatedRoute } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { UnsplashImageDetailed } from '../services/http/unsplash-image.types';
 import { GoBackDirective } from '@shared/directive/go-back/go-back.directive';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatAccordion } from '@angular/material/expansion';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { ImageInfoComponent } from './image-info/image-info.component';
+import { TranslatePipe } from '@ngx-translate/core';
+import { UnsplashImageDownloadDirective } from '@shared/directive/image-download/unsplash-image-download.directive';
 
 @Component({
     selector: 'app-detail',
@@ -22,6 +24,9 @@ import { ImageInfoComponent } from './image-info/image-info.component';
         MatAccordion,
         UserInfoComponent,
         ImageInfoComponent,
+        TranslatePipe,
+        MatIconButton,
+        UnsplashImageDownloadDirective,
     ],
     templateUrl: './detail.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

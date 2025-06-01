@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { UnsplashImageDetailed } from '../../../services/http/unsplash-image.types';
 import { MatIcon } from '@angular/material/icon';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-image-metadata',
-    imports: [MatIcon],
+    imports: [MatIcon, TranslatePipe],
     templateUrl: './image-metadata.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -26,14 +26,14 @@ $dark-theme: mat.m2-define-dark-theme((
 ));
 
 // Define clases CSS para ambos temas
-:root {
-    color-scheme: light;
-    @include mat.all-component-themes($light-theme);
-}
-
 .dark-theme {
     color-scheme: dark;
     @include mat.all-component-themes($dark-theme);
+}
+
+.light-theme {
+    color-scheme: light;
+    @include mat.all-component-themes($light-theme);
 }
 
 /* You can add global styles to this file, and also import other style files */

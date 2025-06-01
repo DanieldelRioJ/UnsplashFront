@@ -1,4 +1,10 @@
-<div class="footer-secondary p-2">
-    <p>Contacto: <a [href]="'mailto:'+contact">{{ contact }}</a>
+<div class="footer-secondary p-2 grid grid-cols-1 md:grid-cols-2 justify-between">
+    <p>
+        {{ 'FOOTER.CONTACT' | translate }}:
+        <a [href]="'mailto:'+contact">{{ contact }}</a>
+    </p>
+    <p class="md:text-right">
+        {{ 'FOOTER.DATA' | translate }}:
+        <a href="https://unsplash.com" target="_blank">unsplash.com</a>
     </p>
 </div>

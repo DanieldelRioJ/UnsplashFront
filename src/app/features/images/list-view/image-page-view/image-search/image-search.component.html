@@ -1,15 +1,19 @@
 <form class="flex flex-col gap-2" [formGroup]="form">
     <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-2">
         <div class="sm:col-span-2 md:col-span-4">
+            @let queryTitle = "IMAGES.LIST_VIEW.SEARCH.TEXT" | translate;
             <mat-form-field class="w-full" color="accent">
-                <mat-label>Texto</mat-label>
+                <mat-label>{{ queryTitle }}</mat-label>
                 <input matInput formControlName="query">
+                <mat-error *appFormError="let error from queryTitle">
+                    {{ error | async }}
+                </mat-error>
             </mat-form-field>
         </div>
 
         <div>
             <mat-form-field class="w-full" color="accent">
-                <mat-label>Orden</mat-label>
+                <mat-label>{{ 'IMAGES.LIST_VIEW.SEARCH.TEXT' | translate }}</mat-label>
                 <mat-select formControlName="order_by">
                     @for (order of order_by_options; track order) {
                         <mat-option

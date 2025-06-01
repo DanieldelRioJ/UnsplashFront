@@ -1,10 +1,12 @@
-<p>Resolución: {{ image().width }}x{{ image().height }}</p>
+<p><span class="font-bold">{{ 'IMAGES.DETAIL_VIEW.IMAGE_INFO.RESOLUTION' | translate }}:</span> {{ image().width }}
+    x{{ image().height }}</p>
 <div class="flex gap-2 items-center">
-    <p>Color: </p>
+    <span class="font-bold">{{ 'IMAGES.DETAIL_VIEW.IMAGE_INFO.COLOR' | translate }}:</span>
     <div [style.background-color]="image().color" class="w-4 h-4 rounded-full"></div>
 </div>
-<p>Camera: {{ image().exif.make }}</p>
-<p class="flex gap-2 items-center">Location:
+<p><span class="font-bold">{{ 'IMAGES.DETAIL_VIEW.IMAGE_INFO.CAMERA' | translate }}:</span> {{ image().exif.make }}</p>
+<p class="flex gap-2 items-center">
+    <span><span class="font-bold">{{ 'IMAGES.DETAIL_VIEW.IMAGE_INFO.LOCATION' | translate }}:</span></span>
     @if (image().location.name) {
         {{ image().location.name }}
     }

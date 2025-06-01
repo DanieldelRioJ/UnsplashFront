@@ -1,17 +1,18 @@
 <div class="w-full flex gap-2">
     @if (user().instagram_username) {
-        <a [href]="'https://instagram.com/'+user().instagram_username" target="_blank">
+        <a [href]="'https://instagram.com/'+user().instagram_username" target="_blank" matTooltip="Instagram">
             <mat-icon svgIcon="enterprise:instagram"></mat-icon>
         </a>
     }
     @if (user().twitter_username) {
-        <a [href]="'https://x.com/'+user().twitter_username" target="_blank">
-            <mat-icon svgIcon="enterprise:instagram"></mat-icon>
+        <a [href]="'https://x.com/'+user().twitter_username" target="_blank" matTooltip="X">
+            <mat-icon svgIcon="enterprise:x"></mat-icon>
         </a>
     }
     @if (user().portfolio_url) {
-        <a [href]="user().portfolio_url" target="_blank">
-            <mat-icon svgIcon="enterprise:instagram"></mat-icon>
+        <a [href]="user().portfolio_url" target="_blank"
+           [matTooltip]="'IMAGES.DETAIL_VIEW.USER_INFO.PORTFOLIO' | translate">
+            <mat-icon svgIcon="heroicons_outline:document"></mat-icon>
         </a>
     }
 </div>

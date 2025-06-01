@@ -2,9 +2,6 @@
     "BREADCRUMB": {
         "IMAGES": "Images"
     },
-    "NOT_FOUND": {
-        "BACK_BUTTON": "Go back"
-    },
     "ERROR_HANDLER": {
         "IMAGES": {
             "TITLE": "An error happened loading images",
@@ -24,6 +21,7 @@
                     "relevant": "Relevant"
                 },
                 "ADVANCED_FILTERS": "Advanced filters",
+                "COLOR": "Color",
                 "COLORS": {
                     "black_and_white": "Black and White",
                     "black": "Black",
@@ -37,11 +35,13 @@
                     "teal": "Teal",
                     "blue": "Blue"
                 },
+                "ORIENTATION": "Orientation",
                 "ORIENTATIONS": {
                     "landscape": "Landscape",
                     "portrait": "Portrait",
                     "squarish": "Squarish"
                 },
+                "CONTENT_FILTER": "Content filter",
                 "CONTENT_FILTERS": {
                     "high": "High",
                     "low": "Low"
@@ -51,6 +51,39 @@
             "NO_IMAGES": "No images found with the provided filters"
         },
         "DETAIL_VIEW": {
+            "IMAGE_INFO": {
+                "TITLE": "Image info",
+                "RESOLUTION": "Resolution",
+                "COLOR": "Color",
+                "CAMERA": "Camera",
+                "LOCATION": "Location"
+            },
+            "USER_INFO": {
+                "FIRST_NAME": "First name",
+                "LAST_NAME": "Last name",
+                "STATS": "Stats",
+                "COLLECTIONS": "Collections",
+                "IMAGES": "Images",
+                "LIKES": "Likes",
+                "PORTFOLIO": "Portfolio"
+            }
         }
+    },
+    "FOOTER": {
+        "CONTACT": "Contact",
+        "DATA": "Data from:"
+    },
+    "FORM_ERROR": {
+        "PATTERN": "Field \"{{fieldName}}\" has not the correct pattern",
+        "REQUIRED": "Field \"{{fieldName}}\" is mandatory",
+        "MIN_LENGTH": "Field \"{{fieldName}}\" has min length {{requiredLength}}",
+        "MAX_LENGTH": "Field \"{{fieldName}}\" has max length {{requiredLength}}",
+        "MAX": "Field \"{{fieldName}}\" has max value {{max}}",
+        "MIN": "Field \"{{fieldName}}\" has min value {{min}}",
+        "EMAIL": "Field \"{{fieldName}}\" does not satisfy email format",
+        "JSON": "Field \"{{fieldName}}\" does not satisfy json format"
+    },
+    "GENERAL": {
+        "GO_BACK": "Go back"
     }
 }

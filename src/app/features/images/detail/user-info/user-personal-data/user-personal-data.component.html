@@ -1,5 +1,8 @@
 <div class="flex flex-col gap-1">
-    <p>Nombre: {{ user().first_name }}</p>
-    <p>Apellidos: {{ user().last_name }}</p>
+    <p><span
+        class="font-bold">{{ 'IMAGES.DETAIL_VIEW.USER_INFO.FIRST_NAME' | translate }}</span>: {{ user().first_name }}
+    </p>
+    <p><span
+        class="font-bold">{{ 'IMAGES.DETAIL_VIEW.USER_INFO.LAST_NAME' | translate }}</span>: {{ user().last_name }}</p>
 </div>
 
