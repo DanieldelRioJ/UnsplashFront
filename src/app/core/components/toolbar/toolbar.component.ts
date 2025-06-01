@@ -4,6 +4,7 @@ import { LangComponent } from '@core/components/lang/lang.component';
 import { ThemeComponent } from '@core/components/theme/theme.component';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LoadingBarComponent } from '@core/components/loading-bar/loading-bar.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-toolbar',
@@ -13,6 +14,7 @@ import { LoadingBarComponent } from '@core/components/loading-bar/loading-bar.co
         ThemeComponent,
         TranslatePipe,
         LoadingBarComponent,
+        RouterLink,
     ],
     templateUrl: './toolbar.component.html',
     styleUrl: './toolbar.component.scss',
