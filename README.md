@@ -1,59 +1,74 @@
-# UnsplashFront
+# Run locally and feature guide
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+This document contains a link to a guide of how to run this web locally, and a demostration of the main features of this web.
 
-## Development server
+- [Installation](./doc/run_locally.md)
+- [Features](#features)
+- [Deployed website](https://unsplash.danidelrio.es)
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
-```
+### Toolbar
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+In the following picture you can see the main view, with a toolbar at the top, and a main section at the center with a search component.
 
-## Code scaffolding
+<img src="./doc/images/main/main-view.png" alt="Main view" width="700"/>
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+The toolbar has a language and a theme selector on the right, that allows the user to change the language (by default the browser language is chosen) and a theme (dark or light, default based on the system)
 
-```bash
-ng generate component component-name
-```
+<img src="./doc/images/main/language-change.png" alt="Language change" width="400"/>
+<img src="./doc/images/main/theme-change.png" alt="Theme change" width="400"/>
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Search component
 
-```bash
-ng generate --help
-```
+In the center, we have the search component, that is divided in 2 parts, the basic one (text and order) and the advanced part (color, orientation and content filter).
+You can perform searchs just by typing or changing them, and the search is applyed automatically once you stop interacting with it.
+The filters are stored on the url on query params and also read from them, so you can reload or share the link with other people.
+<img src="./doc/images/main/advanced-filters.png" alt="Advanced filters" width="700"/>
 
-## Building
+### Image grid with infinite scroll
 
-To build the project run:
+Once a search is performed, the user can scroll, while new images are lazily loaded just before achieving the end of the scroll
+Hovering the images with the mouse, you can see the description and a download button, and by cliking you can go to the detail screen
 
-```bash
-ng build
-```
+Image hover
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+<img src="./doc/images/main/hover.png" alt="Image hover" width="700"/>
 
-## Running unit tests
+Infinite scroll
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+<img src="./doc/videos/infinite-scroll.gif" alt="Infinite scroll" width="700"/>
 
-```bash
-ng test
-```
+### Image detail
 
-## Running end-to-end tests
+<img src="./doc/images/detail/detail-img.png" alt="Image hover" width="700"/>
 
-For end-to-end (e2e) testing, run:
+In the detail screen you can see the image bigger and with additional information, like the resolution, camera used to take the picture, location (with a redirect to Google Maps) and tags, that can perform a search if clicked
+We have a "Go back" button, that allows the user to go to the exact same search as before, and a download button
 
-```bash
-ng e2e
-```
+If the scroll down, we see also the User info that uploaded the picture, his/her stats and some links to his Unsplash profile and social media links.
+<img src="./doc/images/detail/detail-info.png" alt="Image hover" width="700"/>
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Responsiveness
 
-## Additional Resources
+We have done the website with responsiveness in mid, so every device can be used with the website.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Responsive main:
+
+<img src="./doc/images/responsive/responsive-main.png" alt="Image hover" width="400"/>
+
+Responsive detail:
+
+<img src="./doc/images/responsive/responsive-detail.png" alt="Image hover" width="400"/>
+
+### Error handling
+
+If the user tries to go to a unexistent location, a 404 page is shown
+
+<img src="./doc/images/error/404.png" alt="404" width="700"/>
+
+If user tries to load an unexisten image, a toast error is shown
+
+<img src="./doc/images/error/error-image-not-found.png" alt="Image not found error" width="700"/>
+
+The website is deployed in [unsplash.danidelrio.es](https://unsplash.danidelrio.es)
