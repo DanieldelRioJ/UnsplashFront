@@ -32,9 +32,9 @@ export class InfiniteDatasource<F, D> extends DataSource<F, D> {
             tap(() => this.resetPageRequest()),
             switchMap(filterData => {
                 return this.pageRequest$.pipe(
+                    filter(() => !this.noMoreData),
                     tap(() => this.loading$.next(true)),
                     debounceTime(500),
-                    filter(() => !this.noMoreData),
                     exhaustMap(pageRequest =>
                         this.source(filterData, pageRequest).pipe(
                             tap(data => {

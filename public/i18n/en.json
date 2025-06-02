@@ -71,7 +71,7 @@
     },
     "FOOTER": {
         "CONTACT": "Contact",
-        "DATA": "Data from:"
+        "DATA": "Data from"
     },
     "FORM_ERROR": {
         "PATTERN": "Field \"{{fieldName}}\" has not the correct pattern",
