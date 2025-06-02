@@ -13,7 +13,6 @@ import { RouterWithFadeAnimationComponent } from '@shared/components/router-with
         RouterWithFadeAnimationComponent,
     ],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {

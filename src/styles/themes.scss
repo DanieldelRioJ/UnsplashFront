@@ -49,4 +49,6 @@ html, body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: var(--mat-app-background-color);
+    color: var(--mat-app-text-color);
 }

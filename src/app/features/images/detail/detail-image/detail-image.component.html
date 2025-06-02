@@ -1,8 +1,8 @@
-<section class="image-thumb w-full relative cursor-pointer rounded-lg overflow-hidden">
+<section class="image-thumb w-full relative cursor-pointer rounded-lg overflow-hidden rounded-xl">
     @if (image()) {
         <img [src]="image()!.urls.full" [class.hidden]="loading()" (loadstart)="loading.set(true)"
              (load)="loading.set(false)"
-             class="w-full h-full" alt="Unsplash image">
+             class="m-auto object-contain max-h-[75vh] rounded-xl" alt="Unsplash image">
     }
     @if (loading() || !image()) {
         <app-skeleton-image-loading class="w-full min-h-30"></app-skeleton-image-loading>
