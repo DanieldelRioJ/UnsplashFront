@@ -44,6 +44,7 @@ import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImagePageViewComponent implements OnInit, OnDestroy {
+    // TODO por que o datasource é un signal? non podería crear directamente en construcción? creo que tería todo, non?
     datasource = signal<DataSource<
         UnsplashImageSearchFilter,
         UnsplashImage

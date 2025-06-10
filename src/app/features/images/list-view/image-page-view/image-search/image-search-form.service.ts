@@ -13,6 +13,7 @@ import {
 
 @Injectable()
 export class ImageSearchFormService {
+    // TODO por que non o creas directamente?
     readonly searchForm: ReturnType<typeof this._createForm>;
 
     constructor(private readonly _fb: NonNullableFormBuilder) {
