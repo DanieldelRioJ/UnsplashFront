@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
+
+// TODO parece moi parecido ao EmptySearchPlaceholderComponent, non miraches como xuntalos?
 @Component({
     selector: 'app-empty-search-placeholder',
     imports: [],

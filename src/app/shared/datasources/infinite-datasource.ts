@@ -46,7 +46,7 @@ export class InfiniteDatasource<F, D> extends DataSource<F, D> {
                             map(data => {
                                 return [...this.data, ...data];
                             }),
-                            tap(data => (this.data = data))
+                            tap(data => (this.data = data)) //TODO os taps non poden ir xuntos?
                         )
                     )
                 );

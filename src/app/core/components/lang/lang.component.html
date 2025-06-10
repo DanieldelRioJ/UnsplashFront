@@ -13,5 +13,6 @@
 </mat-select>
 
 <ng-template #img let-lang>
+    <!-- TODO non utilizaría SVG directamente, o da bandeira de españa pesa 80KB para un icono, usaría formatos máis friendlies como webp ou avif-->
     <img class="max-h-8" [src]="'/public/flags/'+lang.code+'.svg'" alt="{{lang.name}}">
 </ng-template>

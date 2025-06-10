@@ -20,6 +20,7 @@ export class UnsplashImageService {
         page: number = 0,
         size: number = 10
     ): Observable<UnsplashImageSearchResult> {
+        // TODO agora http params ten constructor con obxecto de fonte, non sei que limitación ten, dígoo por non usar un método propio
         const params = buildHttpParams({
             ...filter,
             page: page,
@@ -28,7 +29,7 @@ export class UnsplashImageService {
         return this._httpClient.get<UnsplashImageSearchResult>(
             `${environment.api_url}search/photos`,
             {
-                params: params,
+                params,
             }
         );
     }
@@ -37,6 +38,7 @@ export class UnsplashImageService {
         return this._httpClient.get<UnsplashImageDetailed>(
             `${environment.api_url}photos/${id}`
         );
+        // TODO isto aqui sobra agora, non?
         return of<UnsplashImageDetailed>({
             id: 'F45e67MXVj8',
             slug: 'red-and-white-coca-cola-can-close-up-photography-F45e67MXVj8',

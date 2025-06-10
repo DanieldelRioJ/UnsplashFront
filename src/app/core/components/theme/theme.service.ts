@@ -25,7 +25,7 @@ export class ThemeService {
 
     getDefaultTheme(): Theme {
         const previousSessionTheme = this._storage.getItem(this.THEME_KEY);
-        //If it is already setted in previous session
+        //If it is already set in previous session
         if (
             previousSessionTheme &&
             THEMES.includes(previousSessionTheme as Theme)
